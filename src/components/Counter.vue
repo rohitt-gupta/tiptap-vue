@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const props = defineProps<{ initial?: number }>();
-const count = ref<number>(props.initial ?? 0);
-
-function increment() {
-  count.value++;
-}
+import { useCounterStore } from '../stores/counter';
+const counterStore = useCounterStore();
 </script>
 
 <template>
-  <button @click="increment">Count: {{ count }}</button>
+  <div class="flex flex-col items-center gap-4">
+    <p class="text-5xl font-bold text-white/90">{{ counterStore.count }}</p>
+    <button 
+      @click="counterStore.increment"
+      class="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-medium transition-colors"
+    >
+      Increment
+    </button>
+  </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { reactive } from 'vue';
 
 const form = reactive({
   name: '',
@@ -16,7 +16,6 @@ function validate() {
 
 function submit() {
   if (!validate()) return;
-  // pretend submit: console log
   console.log('submit', { ...form });
   form.name = '';
   form.email = '';
@@ -24,17 +23,30 @@ function submit() {
 </script>
 
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="submit" class="space-y-4">
     <div>
-      <input v-model="form.name" placeholder="Name" />
-      <div v-if="errors.name">{{ errors.name }}</div>
+      <input 
+        v-model="form.name" 
+        placeholder="Name" 
+        class="w-full px-4 py-2 bg-zinc-700 border border-zinc-600 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+      />
+      <p v-if="errors.name" class="mt-1 text-sm text-red-400">{{ errors.name }}</p>
     </div>
 
     <div>
-      <input v-model="form.email" placeholder="Email" />
-      <div v-if="errors.email">{{ errors.email }}</div>
+      <input 
+        v-model="form.email" 
+        placeholder="Email" 
+        class="w-full px-4 py-2 bg-zinc-700 border border-zinc-600 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+      />
+      <p v-if="errors.email" class="mt-1 text-sm text-red-400">{{ errors.email }}</p>
     </div>
 
-    <button type="submit">Submit</button>
+    <button 
+      type="submit"
+      class="w-full px-6 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-medium transition-colors"
+    >
+      Submit
+    </button>
   </form>
 </template>

@@ -2,31 +2,8 @@
 </script>
 
 <template>
-  <div class="page-container">
-    <h1>About Us</h1>
-    <p>This is the about page</p>
+  <div class="flex flex-col items-center justify-center min-h-screen text-center">
+    <h1 class="text-4xl font-bold text-white/90 mb-2">About Us</h1>
+    <p class="text-lg text-white/60">This is the about page</p>
   </div>
 </template>
-
-<style scoped>
-.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  text-align: center;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-</style>
-
