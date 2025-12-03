@@ -1,0 +1,19 @@
+// https://kettanaito.com/blog/one-thing-nobody-explained-to-you-about-typescript
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./resources/js/*"],
+      "~/*": ["./resources/js/*"]
+    }
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    },
+  ]
+}
