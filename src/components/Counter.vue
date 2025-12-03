@@ -12,5 +12,11 @@ const counterStore = useCounterStore();
     >
       Increment
     </button>
+    <button
+      @click="counterStore.incrementDouble"
+      class="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-medium transition-colors"
+    >
+      Increment double
+    </button>
   </div>
 </template>
