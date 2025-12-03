@@ -1,35 +1,23 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="min-h-screen bg-zinc-900 text-white/90 flex flex-col items-center justify-center p-8">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="flex items-center justify-center gap-4 mb-8">
-        <a 
-          href="https://vite.dev" 
-          target="_blank"
-          class="group"
-        >
-          <img 
-            src="/vite.svg" 
-            class="h-24 p-6 transition-all duration-300 group-hover:drop-shadow-[0_0_2em_#646cffaa]" 
-            alt="Vite logo" 
-          />
-        </a>
-        <a 
-          href="https://vuejs.org/" 
-          target="_blank"
-          class="group"
-        >
-          <img 
-            src="./assets/vue.svg" 
-            class="h-24 p-6 transition-all duration-300 group-hover:drop-shadow-[0_0_2em_#42b883aa]" 
-            alt="Vue logo" 
-          />
-        </a>
-      </div>
-      <HelloWorld msg="Vite + Vue + nano" />
-    </div>
+  <div class="min-h-screen bg-zinc-900 text-white/90">
+    <nav class="fixed top-0 left-0 right-0 flex justify-center gap-6 p-4 bg-zinc-900/80 backdrop-blur-sm border-b border-zinc-800">
+      <RouterLink 
+        to="/" 
+        class="text-white/70 hover:text-white transition-colors"
+      >
+        Home
+      </RouterLink>
+      <RouterLink 
+        to="/about" 
+        class="text-white/70 hover:text-white transition-colors"
+      >
+        About
+      </RouterLink>
+    </nav>
+    <RouterView />
   </div>
 </template>
