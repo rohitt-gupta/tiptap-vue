@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { X } from 'lucide-vue-next'
 import { useListStore } from '../stores/list'
 
 const listStore = useListStore()
@@ -55,9 +56,9 @@ function removeItem(id: number) {
         <span>{{ item.name }}</span>
         <button
           @click="removeItem(item.id)"
-          class="text-red-400 hover:text-red-300 transition-colors"
+          class="text-red-400 hover:text-red-300 transition-colors p-1"
         >
-          ✕
+          <X class="w-4 h-4" />
         </button>
       </li>
       <li v-if="filteredItems.length === 0" class="px-4 py-2 text-white/40 text-center">

@@ -1,11 +1,20 @@
 {
-  "recommendations": [ // frontend
-  "vue.volar",
-  "heybourn.headwind",
-  "esbenp.prettier-vscode",
-  "yoavbls.pretty-ts-errors",
-  "dbaeumer.vscode-eslint",
-  "vitest.explorer",
-  "bierner.markdown-mermaid",
-  "antfu.pnpm-catalog-lens"]
+  "recommendations": [
+    // general
+    "mhutchie.git-graph",
+    // backend
+    "junstyle.php-cs-fixer",
+    "xdebug.php-debug",
+    "bmewburn.vscode-intelephense-client",
+    "onecentlin.laravel-extension-pack",
+    // frontend
+    "vue.volar",
+    "heybourn.headwind",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+    "dbaeumer.vscode-eslint",
+    "vitest.explorer",
+    "bierner.markdown-mermaid",
+    "antfu.pnpm-catalog-lens"
+  ]
 }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, markRaw, type Component } from 'vue'
+import { Plus, List, User, X } from 'lucide-vue-next'
 import Counter from '../components/Counter.vue'
 import SearchList from '../components/SearchList.vue'
 import UserForm from '../components/UserForm.vue'
@@ -9,6 +10,7 @@ interface WorkerCard {
   name: string
   description: string
   component: Component
+  icon: Component
 }
 
 const workers: WorkerCard[] = [
@@ -17,18 +19,21 @@ const workers: WorkerCard[] = [
     name: 'Counter',
     description: 'A simple counter with Pinia store',
     component: markRaw(Counter),
+    icon: markRaw(Plus),
   },
   {
     id: 'list',
     name: 'Search List',
     description: 'Filterable list with search functionality',
     component: markRaw(SearchList),
+    icon: markRaw(List),
   },
   {
     id: 'form',
     name: 'User Form',
     description: 'Form with validation',
     component: markRaw(UserForm),
+    icon: markRaw(User),
   },
 ]
 
@@ -58,9 +63,12 @@ function closeWorker() {
           class="group p-6 rounded-xl border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-800 hover:border-zinc-600 transition-all text-left"
           :class="{ 'ring-2 ring-emerald-500 border-emerald-500': activeWorker?.id === worker.id }"
         >
-          <h3 class="text-lg font-semibold text-white/90 mb-1 group-hover:text-emerald-400 transition-colors">
-            {{ worker.name }}
-          </h3>
+          <div class="flex items-center gap-3 mb-2">
+            <component :is="worker.icon" class="w-6 h-6 text-emerald-400 group-hover:text-emerald-300 transition-colors" />
+            <h3 class="text-lg font-semibold text-white/90 group-hover:text-emerald-400 transition-colors">
+              {{ worker.name }}
+            </h3>
+          </div>
           <p class="text-sm text-white/50">{{ worker.description }}</p>
         </button>
       </div>
@@ -74,9 +82,9 @@ function closeWorker() {
           <h2 class="font-medium text-white/90">{{ activeWorker.name }}</h2>
           <button
             @click="closeWorker"
-            class="text-white/50 hover:text-white transition-colors text-xl leading-none"
+            class="text-white/50 hover:text-white transition-colors p-1"
           >
-            ×
+            <X class="w-5 h-5" />
           </button>
         </div>
         <div class="p-6">
